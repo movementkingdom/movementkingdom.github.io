@@ -8,7 +8,7 @@ const items = [
   { id: 1, label: "Instagram", link: "https://instagram.com/movement.king.dom", icon: ["fab", "instagram"] },
   { id: 2, label: "Youtube", link: "https://youtube.com/channel/UCooXqc9diNrrr8dmAk6EFPQ", icon: ["fab", "youtube"] },
   { id: 3, label: "Telegram", link: "https://t.me/movementkingdom", icon: ["fab", "telegram"] },
-  { id: 4, label: "Email", link: "https://youtube.com/channel/UCooXqc9diNrrr8dmAk6EFPQ", icon: ["fas", "envelope"] },
+  { id: 4, label: "Email", link: "mailto:movement.king.dom@icloud.com", icon: ["fas", "envelope"] },
 ];
 
 const Social = () => {
