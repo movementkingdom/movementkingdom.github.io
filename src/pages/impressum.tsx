@@ -21,16 +21,14 @@ interface Props {
   };
 }
 
-const Impressum: React.FC<Props> = ({ data }: Props) => {
-  const { markdownRemark } = data;
-  const { html } = markdownRemark;
+const Impressum: React.FC<Props> = ({ data: { markdownRemark } }: Props) => {
   return (
     <main>
       <Layout>
         <Header />
         <Social />
         <Heading text={markdownRemark.frontmatter.title} />
-        <div className="markdown m-4 mx-auto px-6 max-w-2xl w-lg" dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="markdown m-4 mx-auto px-6 max-w-2xl w-lg" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         <HomeButton />
         <Footer />
       </Layout>

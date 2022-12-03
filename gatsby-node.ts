@@ -20,7 +20,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   const { createPage } = actions;
 
   const result = await graphql<TypeData>(`
-    query {
+    query AllPosts {
       allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/(posts)/" } }) {
         edges {
           node {
@@ -40,11 +40,10 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
   // Create blog post pages.
   const posts = result.data?.allMarkdownRemark.edges;
-  console.log(posts);
 
   const createPostPromise = result.data?.allMarkdownRemark.edges.map((edge) => {
     createPage({
-      path: edge.node.frontmatter.slug,
+      path: "/blog" + edge.node.frontmatter.slug,
       component: path.resolve(`./src/templates/post-template.tsx`),
       context: { id: edge.node.id },
     });

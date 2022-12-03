@@ -18,7 +18,12 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -58,14 +63,14 @@ const config: GatsbyConfig = {
       resolve: `gatsby-source-google-calendar`,
       options: {
         calendarIds: {
-          calendarId: 'hla1m0ms5tppffg9mv1q22oojg@group.calendar.google.com',
+          calendarId: "hla1m0ms5tppffg9mv1q22oojg@group.calendar.google.com",
         },
         // options to retrieve the next 10 upcoming events
-        timeMin: (new Date()).toISOString(),
+        timeMin: new Date().toISOString(),
         maxResults: 50,
         singleEvents: true,
-        orderBy: 'startTime',
-      }
+        orderBy: "startTime",
+      },
     },
   ],
 };

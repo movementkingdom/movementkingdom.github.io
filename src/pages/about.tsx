@@ -20,11 +20,7 @@ interface Props {
   };
 }
 
-const About: React.FC<Props> = ({ data }: Props) => {
-  const { markdownRemark } = data;
-  console.log(data);
-  console.log(markdownRemark);
-  const { html } = markdownRemark;
+const About: React.FC<Props> = ({ data: { markdownRemark } }: Props) => {
   return (
     <main>
       <Layout>
@@ -33,7 +29,7 @@ const About: React.FC<Props> = ({ data }: Props) => {
             <Avatar size={56} />
           </p>
           <Heading text={"Über mich"} />
-          <div className="markdown px-6" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="markdown px-6" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         </div>
         <HomeButton />
         <Footer />
