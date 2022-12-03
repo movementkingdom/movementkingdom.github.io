@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import Avatar from '../components/avatar';
 import Footer from '../components/footer';
+import Header from '../components/header';
 import Heading from '../components/heading';
 import HomeButton from '../components/home-button';
 import Layout from '../components/layout';
@@ -24,11 +25,13 @@ const About: React.FC<Props> = ({ data: { markdownRemark } }: Props) => {
   return (
     <main>
       <Layout>
+        <Header />
+
+        <Heading text={"Über mich"} />
+        <p className="flex justify-center mt-10 mb-10">
+          <Avatar size={56} />
+        </p>
         <div className="max-w-2xl w-lg mx-auto">
-          <p className="flex justify-center mt-10 mb-10">
-            <Avatar size={56} />
-          </p>
-          <Heading text={"Über mich"} />
           <div className="markdown px-6" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         </div>
         <HomeButton />
