@@ -33,7 +33,7 @@ const About: React.FC<Props> = ({ data }: Props) => {
             <Avatar size={56} />
           </p>
           <Heading text={"Über mich"} />
-          <div className="markdown m-6" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="markdown px-6" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
         <HomeButton />
         <Footer />

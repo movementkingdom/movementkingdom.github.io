@@ -1,8 +1,12 @@
 import { graphql, HeadFC, Link, PageProps, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
+import Footer from '../components/footer';
+import Header from '../components/header';
+import Heading from '../components/heading';
 import HomeButton from '../components/home-button';
 import Layout from '../components/layout';
+import Social from '../components/social';
 
 interface Props {
   data: {
@@ -25,9 +29,12 @@ const Impressum: React.FC<Props> = ({ data }: Props) => {
   return (
     <main>
       <Layout>
-        <p className="text-center m-6 font-bold font-serif text-4xl">{markdownRemark.frontmatter.title}</p>
-        <div className="m-4 " dangerouslySetInnerHTML={{ __html: html }} />
+        <Header />
+        <Social />
+        <Heading text={markdownRemark.frontmatter.title} />
+        <div className="markdown m-4 mx-auto px-6 max-w-2xl w-lg" dangerouslySetInnerHTML={{ __html: html }} />
         <HomeButton />
+        <Footer />
       </Layout>
     </main>
   );
