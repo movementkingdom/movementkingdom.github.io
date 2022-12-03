@@ -14,6 +14,7 @@ const News: React.FC<PageProps> = () => {
       <Header />
       <Social />
       <Heading text={"News"} />
+      <div className="m-4 mx-auto px-6 max-w-2xl w-lg pb-48 text-center">Noch nichts los hier.</div>
       <HomeButton />
       <Footer />
     </Layout>

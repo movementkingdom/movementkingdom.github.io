@@ -23,8 +23,6 @@ interface Props {
 
 const Impressum: React.FC<Props> = ({ data }: Props) => {
   const { markdownRemark } = data;
-  console.log(data);
-  console.log(markdownRemark);
   const { html } = markdownRemark;
   return (
     <main>
