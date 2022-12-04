@@ -28,7 +28,7 @@ const About: React.FC<Props> = ({ data: { markdownRemark } }: Props) => {
         <Header />
         <Heading text={"Über mich"} />
         <p className="flex justify-center mt-10 mb-10">
-          <Avatar size={56} />
+          <Avatar size={56} name="dom" />
         </p>
         <div className="max-w-2xl w-lg mx-auto">
           <div className="markdown px-6" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />

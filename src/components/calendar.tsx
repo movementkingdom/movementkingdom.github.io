@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React, { Fragment } from 'react';
 
 import { Dialog, Transition } from '@headlessui/react';
@@ -8,6 +9,7 @@ import {
 
 import imageConny from '../images/avatar-conny.png';
 import imageDom from '../images/avatar-dom.png';
+import Avatar from './avatar';
 
 interface Props {
   events: [
@@ -34,7 +36,7 @@ interface CalendarEvent {
   datetime: Date;
   name: string;
   description: string;
-  imageUrl: string;
+  trainer: string;
   location: string;
 }
 
@@ -100,10 +102,10 @@ class Calendar extends React.Component<Props, State> {
 
       let expr: RegExp = /Trainer:<\/u><br>(\w+)<\/p>/g;
       let trainerFound = expr.exec(event.description);
-      let trainer = "-";
+      let trainerName = "-";
 
       if (trainerFound && trainerFound.length > 1) {
-        trainer = trainerFound[1];
+        trainerName = trainerFound[1];
       }
 
       events.push({
@@ -113,7 +115,7 @@ class Calendar extends React.Component<Props, State> {
         datetime: new Date(event.start.dateTime),
         name: event.summary,
         description: event.description,
-        imageUrl: this.getTrainerImage(trainer),
+        trainer: trainerName,
         location: event.location,
       });
     }
@@ -124,10 +126,6 @@ class Calendar extends React.Component<Props, State> {
 
     this.eventListRef = newFilteredCalendarEvents.map(() => React.createRef());
 
-    // this.eventListRef[0].current?.addEventListener('hover', (ev) => {
-    //   console.log(ev.timeStamp);
-    // })
-
     this.state = {
       calendarDays: newCalendarDays,
       calendarEvents: events,
@@ -136,16 +134,6 @@ class Calendar extends React.Component<Props, State> {
       isCurrentMonth: true,
       showDetails: false,
     };
-  }
-
-  getTrainerImage(trainerName: string) {
-    if (trainerName === "Dom") {
-      return imageDom;
-    } else if (trainerName === "Conny") {
-      return imageConny;
-    } else {
-      return "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80";
-    }
   }
 
   calculareCalendarData(month: Date): Array<CalendarDay> {
@@ -455,7 +443,7 @@ class Calendar extends React.Component<Props, State> {
                       this.handleShowDetailsClicked(idx);
                     }}
                   >
-                    <img src={event.imageUrl} alt="" className="h-14 w-14 flex-none rounded-full" />
+                    <Avatar size={14} name={event.trainer} />
                     <div className="flex-auto">
                       <h3 className="pr-10 font-semibold text-gray-900 xl:pr-0">{event.name}</h3>
                       <dl className="mt-2 flex flex-col text-gray-500 xl:flex-row">

@@ -1,16 +1,13 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
-import logoImage from '../images/banner-logo.png';
+// import logoImage from '../images/banner-logo.png';
 
-const Logo= () => {
+const Logo = () => {
   return (
-    <>
-      <img
-        className='inline-block h-48 w-96 rounded-full'
-        src={ logoImage }
-        alt="Logo Image"
-      />
-    </>
+    <div className="h-48 w-96 mx-auto">
+      <StaticImage className="rounded-full" src="../images/banner-logo.png" alt="Logo Image" />
+    </div>
   );
 };
 
