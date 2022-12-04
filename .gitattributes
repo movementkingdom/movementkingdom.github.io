@@ -25,3 +25,5 @@
 *.odt filter=lfs diff=lfs merge=lfs -text
 *.odf filter=lfs diff=lfs merge=lfs -text
 *.odp filter=lfs diff=lfs merge=lfs -text
+
+* text eol=crlf to * text=auto eol=crlf
