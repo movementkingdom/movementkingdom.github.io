@@ -4,8 +4,8 @@ import * as React from 'react';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Heading from '../components/heading';
-import HomeButton from '../components/home-button';
 import Layout from '../components/layout';
+import PrimaryButton from '../components/primary-button';
 import Social from '../components/social';
 
 interface Props {
@@ -29,7 +29,7 @@ const Impressum: React.FC<Props> = ({ data: { markdownRemark } }: Props) => {
         <Social />
         <Heading text={markdownRemark.frontmatter.title} />
         <div className="markdown m-4 mx-auto px-6 max-w-2xl w-lg" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-        <HomeButton />
+        <PrimaryButton link={"/"} />
         <Footer />
       </Layout>
     </main>

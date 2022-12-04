@@ -5,8 +5,8 @@ import Calendar from '../components/calendar';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Heading from '../components/heading';
-import HomeButton from '../components/home-button';
 import Layout from '../components/layout';
+import PrimaryButton from '../components/primary-button';
 import Social from '../components/social';
 
 interface Props {
@@ -42,8 +42,10 @@ const Kurse: React.FC<Props> = ({ data }: Props) => {
         <Header />
         <Social />
         <Heading text={"Aktuelle Kurse"} />
-        <Calendar events={data.allCalendar.edges[0].node.childrenCalendarEvent} />
-        <HomeButton />
+        <div className="pb-10">
+          <Calendar events={data.allCalendar.edges[0].node.childrenCalendarEvent} />
+        </div>
+        <PrimaryButton link={"/"} />
         <Footer />
       </Layout>
     </main>
@@ -55,7 +57,7 @@ export default Kurse;
 export const Head: HeadFC = () => <title>Aktuelle Kurse</title>;
 
 export const pageQuery = graphql`
-  query MyCalendarQuery {
+  query CalendarQuery {
     allCalendar(filter: { summary: { eq: "Yoga Termine" } }) {
       edges {
         node {

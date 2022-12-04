@@ -5,8 +5,8 @@ import Avatar from '../components/avatar';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Heading from '../components/heading';
-import HomeButton from '../components/home-button';
 import Layout from '../components/layout';
+import PrimaryButton from '../components/primary-button';
 
 interface Props {
   data: {
@@ -30,10 +30,10 @@ const About: React.FC<Props> = ({ data: { markdownRemark } }: Props) => {
         <div className="mt-10 mb-10 w-56 h-56 max-w-full mx-auto">
           <Avatar name="dom" />
         </div>
-        <div className="max-w-2xl w-lg mx-auto">
+        <div className="pb-10 max-w-2xl w-lg mx-auto">
           <div className="markdown px-6" dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         </div>
-        <HomeButton />
+        <PrimaryButton link={"/"} />
         <Footer />
       </Layout>
     </main>

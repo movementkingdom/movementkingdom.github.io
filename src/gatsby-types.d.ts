@@ -2051,6 +2051,8 @@ type MarkdownRemarkFilterListInput = {
 
 type MarkdownRemarkFrontmatter = {
   readonly date: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly public: Maybe<Scalars['Boolean']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
 };
@@ -2065,18 +2067,24 @@ type MarkdownRemarkFrontmatter_dateArgs = {
 
 type MarkdownRemarkFrontmatterFieldSelector = {
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly public: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly public: InputMaybe<BooleanQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 type MarkdownRemarkFrontmatterSortInput = {
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly public: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
@@ -3735,6 +3743,16 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type AllBlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllBlogPostsQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly timeToRead: number | null, readonly frontmatter: { readonly title: string | null, readonly description: string | null, readonly date: string | null, readonly slug: string | null, readonly public: boolean | null } | null } }> } };
+
+type CalendarQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CalendarQueryQuery = { readonly allCalendar: { readonly edges: ReadonlyArray<{ readonly node: { readonly summary: string, readonly description: string | null, readonly childrenCalendarEvent: ReadonlyArray<{ readonly summary: string, readonly location: string | null, readonly description: string | null, readonly start: { readonly date: string | null, readonly dateTime: string }, readonly end: { readonly date: string | null, readonly dateTime: string } } | null> | null } }> } };
+
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
 type GatsbyImageSharpFixed_noBase64Fragment = { readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
@@ -3760,11 +3778,6 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
-
-type MyCalendarQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type MyCalendarQueryQuery = { readonly allCalendar: { readonly edges: ReadonlyArray<{ readonly node: { readonly summary: string, readonly description: string | null, readonly childrenCalendarEvent: ReadonlyArray<{ readonly summary: string, readonly location: string | null, readonly description: string | null, readonly start: { readonly date: string | null, readonly dateTime: string }, readonly end: { readonly date: string | null, readonly dateTime: string } } | null> | null } }> } };
 
 type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
