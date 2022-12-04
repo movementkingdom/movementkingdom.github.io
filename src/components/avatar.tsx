@@ -2,41 +2,29 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
+import imageConny from '../images/avatar-conny.png';
+import imageDom from '../images/avatar-dom.png';
+
 type AvatarProps = {
-  size: number;
   name: string;
 };
 
-const Avatar: React.FC<AvatarProps> = ({ size, name }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      dom: allFile(filter: { sourceInstanceName: { eq: "images" }, name: { eq: "avatar-dom" } }) {
-        edges {
-          node {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-      conny: allFile(filter: { sourceInstanceName: { eq: "images" }, name: { eq: "avatar-conny" } }) {
-        edges {
-          node {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
-  `);
+const avatars = [
+  { name: "dom", image: imageDom },
+  { name: "conny", image: imageConny },
+];
 
-  const image = getImage(data[name.toLowerCase()].edges[0].node);
+const Avatar: React.FC<AvatarProps> = ({ name }) => {
+  console.log("Trainer: " + name);
+  console.log(avatars.find((e) => e.name === name.toLowerCase())?.image);
+
 
   return (
-    <div className={`w h-${size} w-${size} rounded-full`}>
-      <GatsbyImage className="rounded-full" image={image} alt="Avatar Image" />
-    </div>
+    <img
+      className={"rounded-full"}
+      src={avatars.find((e) => e.name === name.toLowerCase())?.image}
+      alt="Avatar Image"
+    />
   );
 };
 

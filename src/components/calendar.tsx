@@ -440,7 +440,9 @@ class Calendar extends React.Component<Props, State> {
                       this.handleShowDetailsClicked(idx);
                     }}
                   >
-                    <Avatar size={14} name={event.trainer} />
+                    <div className="h-14 w-14">
+                      <Avatar name={event.trainer} />
+                    </div>
                     <div className="flex-auto">
                       <h3 className="pr-10 font-semibold text-gray-900 xl:pr-0">{event.name}</h3>
                       <dl className="mt-2 flex flex-col text-gray-500 xl:flex-row">
