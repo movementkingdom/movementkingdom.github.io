@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col space-y-2 mx-auto max-w-sm m-6 text-center pt-4 border-t-2 border-gray-200">
       <Link to="/impressum/">
-        <p className="text-amber-400 text-sm font-serif">Impressum</p>
+        <p className="text-amber-400 hover:text-amber-300 text-sm font-serif">Impressum</p>
       </Link>
       <p className="text-gray-400 text-sm">@ 2022 Dominik Stamm</p>
     </div>
