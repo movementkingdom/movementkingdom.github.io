@@ -19,7 +19,7 @@ const config: GatsbyConfig = {
         short_name: `Move`,
         start_url: `/`,
         background_color: `#f7f0eb`,
-        theme_color: `#FFC107`,
+        theme_color: `#FFF3C7`,
         display: `standalone`,
         icon: "src/images/icon-bg-white.png",
       },
