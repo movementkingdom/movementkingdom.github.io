@@ -27,7 +27,6 @@
     "gatsby": "^5.0.0",
     "gatsby-plugin-image": "^3.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
-    "gatsby-plugin-mdx": "^5.2.0",
     "gatsby-plugin-postcss": "^6.2.0",
     "gatsby-plugin-sharp": "^5.2.0",
     "gatsby-remark-classes": "^1.0.2",

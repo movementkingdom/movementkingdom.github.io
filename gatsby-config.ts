@@ -15,13 +15,13 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        extensions: [".mdx", ".md"],
+        name: `Movementkingdom`,
+        short_name: `Move`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#FFC107`,
+        display: `standalone`,
+        icon: "src/images/icon-bg-white.png",
       },
     },
     "gatsby-plugin-sharp",
@@ -49,14 +49,6 @@ const config: GatsbyConfig = {
         path: "./src/content/",
       },
       __key: "content",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "posts",
-        path: "./src/content/posts",
-      },
-      __key: "posts",
     },
     "gatsby-transformer-remark",
     {

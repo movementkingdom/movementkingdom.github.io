@@ -26,7 +26,6 @@ const About: React.FC<Props> = ({ data: { markdownRemark } }: Props) => {
     <main>
       <Layout>
         <Header />
-
         <Heading text={"Über mich"} />
         <p className="flex justify-center mt-10 mb-10">
           <Avatar size={56} />
