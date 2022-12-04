@@ -1,14 +1,13 @@
-import { Link } from 'gatsby';
-import React, { createRef, Fragment, useRef } from 'react';
+import React, { Fragment } from 'react';
 
-import { Dialog, Menu, Transition } from '@headlessui/react';
+import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import {
     CalendarIcon, ChevronLeftIcon, ChevronRightIcon, EllipsisHorizontalIcon, MapPinIcon
 } from '@heroicons/react/24/solid';
 
-import imageDom from '../images/avatar.png';
-import imageConny from '../images/conny.png';
+import imageConny from '../images/avatar-conny.png';
+import imageDom from '../images/avatar-dom.png';
 
 interface Props {
   events: [

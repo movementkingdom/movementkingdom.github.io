@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import avatar from '../images/avatar.png';
+import imageDom from '../images/avatar-dom.png';
 
 type AvatarProps = {
   size: number;
@@ -12,7 +12,7 @@ const Avatar: React.FC<AvatarProps> = ({ size }) => {
       <img
         className={`inline-block w h-${ size } w-${ size } rounded-full`}
         // className={`w-28 rounded-full`}
-        src={ avatar }
+        src={ imageDom }
         alt="Avatar Image"
       />
       {/* <p>"inline-block h-{ size } w-{ size } rounded-full"</p> */}

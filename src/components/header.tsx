@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
 
-import Avatar from './avatar';
 import Logo from './logo';
 
 const Header = () => {
