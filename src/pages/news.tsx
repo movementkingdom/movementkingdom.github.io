@@ -11,10 +11,11 @@ import Social from '../components/social';
 
 interface Props {
   // messages: Array<MessageType>;
-  data:{
-  allMessage: {
-    nodes: Array<MessageType>;
-  };}
+  data: {
+    allMessage: {
+      nodes: Array<MessageType>;
+    };
+  };
 }
 
 const News: React.FC<Props> = ({ data }: Props) => {
