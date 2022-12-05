@@ -15,10 +15,6 @@ const avatars = [
 ];
 
 const Avatar: React.FC<AvatarProps> = ({ name }) => {
-  console.log("Trainer: " + name);
-  console.log(avatars.find((e) => e.name === name.toLowerCase())?.image);
-
-
   return (
     <img
       className={"rounded-full"}

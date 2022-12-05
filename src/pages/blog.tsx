@@ -31,8 +31,6 @@ interface Props {
 const Blog: React.FC<Props> = ({ data }: Props) => {
   const posts = data.allMarkdownRemark.edges;
 
-  console.log(posts);
-
   return (
     <Layout>
       <Header />

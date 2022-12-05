@@ -18,7 +18,6 @@ interface Props {
 }
 
 const News: React.FC<Props> = ({ data }: Props) => {
-  console.log(data.allMessage);
   return (
     <Layout>
       <Header />

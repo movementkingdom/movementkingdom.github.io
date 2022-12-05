@@ -9,7 +9,6 @@ import Social from '../components/social';
 import type { HeadFC, PageProps } from "gatsby";
 
 const IndexPage: React.FC<PageProps> = (data) => {
-  console.log(data);
   return (
     <main>
       <Layout>
