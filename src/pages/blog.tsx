@@ -38,7 +38,7 @@ const Blog: React.FC<Props> = ({ data }: Props) => {
       <Header />
       <Social />
       <Heading text={"Blog"} />
-      <div className="bg-white px-6 pt-10 pb-10 max-w-2xl w-lg mx-auto">
+      <div className="bg-white px-6 py-10 max-w-2xl w-lg mx-auto">
         <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
           <div>
             <div className="mt-3 sm:mt-4 lg:grid lg:grid-cols-2 lg:gap-5 lg:items-center">

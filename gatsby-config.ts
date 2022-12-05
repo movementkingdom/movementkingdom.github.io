@@ -64,6 +64,13 @@ const config: GatsbyConfig = {
         orderBy: "startTime",
       },
     },
+    {
+      resolve: "gatsby-plugin-telegram",
+      options: {
+        channelName: "mkdrgbnews"
+      }
+
+    },
   ],
 };
 
