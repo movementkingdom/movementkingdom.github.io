@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-plugin",
-  "version": "1.0.0",
-  "description": "A minimal boilerplate for the essential files Gatsby looks for in a plugin",
+  "name": "gatsby-plugin-telegram",
+  "version": "0.0.1",
+  "description": "A gatsby plugin to fetch telegram posts.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,10 +9,11 @@
   },
   "keywords": [
     "gatsby",
-    "gatsby-plugin"
+    "gatsby-plugin",
+    "telegram"
   ],
-  "author": "Kyle Gill <kyle.robert.gill@gmail.com>",
-  "license": "0BSD",
+  "author": "Dominik Stamm <dominik.stamm@me.com>",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.3",
     "input": "^1.0.1",

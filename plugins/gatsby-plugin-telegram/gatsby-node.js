@@ -5,7 +5,6 @@ const { getMessageHistory } = require("./helper/telegram");
  *
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
-// You can delete this file if you're not using it
 
 /**
  * You can uncomment the following line to verify that

@@ -1,9 +1,10 @@
 {
   "name": "movementkingdom.github.io",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "movementkingdom.github.io",
-  "author": "Dom",
+  "author": "Dominik Stamm <dominik.stamm@me.com>",
+  "license": "MIT",
   "keywords": [
     "gatsby"
   ],
