@@ -24,6 +24,7 @@
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "@mdx-js/react": "^2.1.5",
+    "dotenv": "^16.0.3",
     "gatsby": "^5.0.0",
     "gatsby-plugin-image": "^3.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
@@ -39,6 +40,7 @@
     "react-dom": "^18.2.0",
     "react-linkify": "^1.0.0-alpha",
     "tailwindcss": "^3.2.4",
+    "telegram": "^2.14.7",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
