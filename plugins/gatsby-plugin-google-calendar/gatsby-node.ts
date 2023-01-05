@@ -1,4 +1,4 @@
-import { getMessageHistory } from './helper/google-calendar';
+import { getEvents } from './helper/google-calendar';
 
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -20,20 +20,17 @@ exports.onPreInit = () => {
 };
 
 // constants for your GraphQL Post and Author types
-const MESSAGE_NODE_TYPE = `Message`;
+const MESSAGE_NODE_TYPE = `Calendar`;
 
 exports.sourceNodes = async ({ actions, createContentDigest, createNodeId, getNodesByType }, pluginOptions) => {
   const { createNode } = actions;
 
-  console.log('Options of gatsby-plugin-google-calendar: ');
-  console.log(pluginOptions)
+  console.log("Google Calendar ID: " + pluginOptions.calendarIds.calendarId);
 
-  // console.log("Google Calendar ID: " + pluginOptions.channelName);
-
-  const data = []; //await getEvents(pluginOptions.channelName);
+  const events = await getEvents(pluginOptions.calendarIds.calendarId);
 
   // loop through data and create Gatsby nodes
-  data.forEach((message) =>
+  events.items?.map((message) =>
     createNode({
       ...message,
       id: createNodeId(`${MESSAGE_NODE_TYPE}-${message.id}`),
