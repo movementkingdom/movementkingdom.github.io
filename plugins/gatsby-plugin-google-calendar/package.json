@@ -1,0 +1,22 @@
+{
+  "name": "gatsby-plugin-google-calendar",
+  "version": "0.0.1",
+  "description": "A gatsby plugin to fetch google calendar events with the googleapi.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No build script setup\""
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "google-calendar"
+  ],
+  "author": "Dominik Stamm <dominik.stamm@me.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "googleapis": "^110.0.0",
+    "input": "^1.0.1"
+  }
+}

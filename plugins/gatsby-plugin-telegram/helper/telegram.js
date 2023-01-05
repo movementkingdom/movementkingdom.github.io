@@ -7,8 +7,10 @@ exports.getMessageHistory = async (channel) => {
   const apiHash = process.env.TELEGRAM_API_HASH || "";
   const stringSession = new StringSession(process.env.TELEGRAM_SESSION);
 
-  const client = new TelegramClient(stringSession, apiId, apiHash, { connectionRetries: 5 });
+  console.log("Creating Telegram Client");
+  const client = new TelegramClient(stringSession, apiId, apiHash, { connectionRetries: 5, timeout: 1 });
 
+  console.log("Starting Telegram Client");
   await client.start({
     phoneNumber: async () => await input.text("number ?"),
     password: async () => await input.text("password?"),

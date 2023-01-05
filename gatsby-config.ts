@@ -52,7 +52,13 @@ const config: GatsbyConfig = {
     },
     "gatsby-transformer-remark",
     {
-      resolve: `gatsby-source-google-calendar`,
+      resolve: "gatsby-plugin-telegram",
+      options: {
+        channelName: "mkdrgbnews",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-calendar`,
       options: {
         calendarIds: {
           calendarId: "hla1m0ms5tppffg9mv1q22oojg@group.calendar.google.com",
@@ -63,13 +69,6 @@ const config: GatsbyConfig = {
         singleEvents: true,
         orderBy: "startTime",
       },
-    },
-    {
-      resolve: "gatsby-plugin-telegram",
-      options: {
-        channelName: "mkdrgbnews"
-      }
-
     },
   ],
 };
