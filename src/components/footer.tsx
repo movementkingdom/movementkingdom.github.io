@@ -14,7 +14,7 @@ const Footer = () => {
       <Link to="/impressum/">
         <p className="text-amber-400 hover:text-amber-300 text-sm font-serif">Impressum</p>
       </Link>
-      <p className="text-gray-400 text-sm">@ 2022 Dominik Stamm</p>
+      <p className="text-gray-400 text-sm">@ 2023 Dominik Stamm</p>
     </div>
   );
 };
