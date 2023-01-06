@@ -49,44 +49,17 @@ type BooleanQueryOperatorInput = {
 };
 
 type Calendar = Node & {
-  readonly accessRole: Maybe<Scalars['String']>;
-  readonly backgroundColor: Maybe<Scalars['String']>;
   /** Returns the first child node of type CalendarEvent or null if there are no children of given type on this node */
   readonly childCalendarEvent: Maybe<CalendarEvent>;
   readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type CalendarEvent */
   readonly childrenCalendarEvent: Maybe<ReadonlyArray<Maybe<CalendarEvent>>>;
-  readonly colorId: Maybe<Scalars['String']>;
-  readonly conferenceProperties: Maybe<CalendarConferenceProperties>;
-  readonly defaultReminders: Maybe<ReadonlyArray<Maybe<CalendarDefaultReminders>>>;
   readonly description: Maybe<Scalars['String']>;
-  readonly etag: Maybe<Scalars['String']>;
-  readonly foregroundColor: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly kind: Maybe<Scalars['String']>;
-  readonly notificationSettings: Maybe<CalendarNotificationSettings>;
   readonly parent: Maybe<Node>;
-  readonly primary: Maybe<Scalars['Boolean']>;
-  readonly selected: Maybe<Scalars['Boolean']>;
   readonly summary: Scalars['String'];
   readonly timeZone: Maybe<Scalars['String']>;
-};
-
-type CalendarConferenceProperties = {
-  readonly allowedConferenceSolutionTypes: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-};
-
-type CalendarConferencePropertiesFieldSelector = {
-  readonly allowedConferenceSolutionTypes: InputMaybe<FieldSelectorEnum>;
-};
-
-type CalendarConferencePropertiesFilterInput = {
-  readonly allowedConferenceSolutionTypes: InputMaybe<StringQueryOperatorInput>;
-};
-
-type CalendarConferencePropertiesSortInput = {
-  readonly allowedConferenceSolutionTypes: InputMaybe<SortOrderEnum>;
 };
 
 type CalendarConnection = {
@@ -128,30 +101,6 @@ type CalendarConnection_sumArgs = {
   field: CalendarFieldSelector;
 };
 
-type CalendarDefaultReminders = {
-  readonly method: Maybe<Scalars['String']>;
-  readonly minutes: Maybe<Scalars['Int']>;
-};
-
-type CalendarDefaultRemindersFieldSelector = {
-  readonly method: InputMaybe<FieldSelectorEnum>;
-  readonly minutes: InputMaybe<FieldSelectorEnum>;
-};
-
-type CalendarDefaultRemindersFilterInput = {
-  readonly method: InputMaybe<StringQueryOperatorInput>;
-  readonly minutes: InputMaybe<IntQueryOperatorInput>;
-};
-
-type CalendarDefaultRemindersFilterListInput = {
-  readonly elemMatch: InputMaybe<CalendarDefaultRemindersFilterInput>;
-};
-
-type CalendarDefaultRemindersSortInput = {
-  readonly method: InputMaybe<SortOrderEnum>;
-  readonly minutes: InputMaybe<SortOrderEnum>;
-};
-
 type CalendarEdge = {
   readonly next: Maybe<Calendar>;
   readonly node: Calendar;
@@ -167,7 +116,6 @@ type CalendarEvent = Node & {
   readonly end: EventDate;
   readonly etag: Maybe<Scalars['String']>;
   readonly eventType: Maybe<Scalars['String']>;
-  readonly gadget: Maybe<CalendarEventGadget>;
   readonly guestsCanSeeOtherGuests: Maybe<Scalars['Boolean']>;
   readonly htmlLink: Maybe<Scalars['String']>;
   readonly iCalUID: Maybe<Scalars['String']>;
@@ -179,12 +127,10 @@ type CalendarEvent = Node & {
   readonly originalStartTime: Maybe<CalendarEventOriginalStartTime>;
   readonly parent: Maybe<Node>;
   readonly recurringEventId: Maybe<Scalars['String']>;
-  readonly reminders: Maybe<CalendarEventReminders>;
   readonly sequence: Maybe<Scalars['Int']>;
   readonly start: EventDate;
   readonly status: Maybe<Scalars['String']>;
   readonly summary: Scalars['String'];
-  readonly transparency: Maybe<Scalars['String']>;
   readonly updated: Maybe<Scalars['Date']>;
   readonly visibility: Maybe<Scalars['String']>;
 };
@@ -245,27 +191,19 @@ type CalendarEventConnection_sumArgs = {
 };
 
 type CalendarEventCreator = {
-  readonly displayName: Maybe<Scalars['String']>;
   readonly email: Maybe<Scalars['String']>;
-  readonly self: Maybe<Scalars['Boolean']>;
 };
 
 type CalendarEventCreatorFieldSelector = {
-  readonly displayName: InputMaybe<FieldSelectorEnum>;
   readonly email: InputMaybe<FieldSelectorEnum>;
-  readonly self: InputMaybe<FieldSelectorEnum>;
 };
 
 type CalendarEventCreatorFilterInput = {
-  readonly displayName: InputMaybe<StringQueryOperatorInput>;
   readonly email: InputMaybe<StringQueryOperatorInput>;
-  readonly self: InputMaybe<BooleanQueryOperatorInput>;
 };
 
 type CalendarEventCreatorSortInput = {
-  readonly displayName: InputMaybe<SortOrderEnum>;
   readonly email: InputMaybe<SortOrderEnum>;
-  readonly self: InputMaybe<SortOrderEnum>;
 };
 
 type CalendarEventEdge = {
@@ -283,7 +221,6 @@ type CalendarEventFieldSelector = {
   readonly end: InputMaybe<EventDateFieldSelector>;
   readonly etag: InputMaybe<FieldSelectorEnum>;
   readonly eventType: InputMaybe<FieldSelectorEnum>;
-  readonly gadget: InputMaybe<CalendarEventGadgetFieldSelector>;
   readonly guestsCanSeeOtherGuests: InputMaybe<FieldSelectorEnum>;
   readonly htmlLink: InputMaybe<FieldSelectorEnum>;
   readonly iCalUID: InputMaybe<FieldSelectorEnum>;
@@ -295,12 +232,10 @@ type CalendarEventFieldSelector = {
   readonly originalStartTime: InputMaybe<CalendarEventOriginalStartTimeFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly recurringEventId: InputMaybe<FieldSelectorEnum>;
-  readonly reminders: InputMaybe<CalendarEventRemindersFieldSelector>;
   readonly sequence: InputMaybe<FieldSelectorEnum>;
   readonly start: InputMaybe<EventDateFieldSelector>;
   readonly status: InputMaybe<FieldSelectorEnum>;
   readonly summary: InputMaybe<FieldSelectorEnum>;
-  readonly transparency: InputMaybe<FieldSelectorEnum>;
   readonly updated: InputMaybe<FieldSelectorEnum>;
   readonly visibility: InputMaybe<FieldSelectorEnum>;
 };
@@ -314,7 +249,6 @@ type CalendarEventFilterInput = {
   readonly end: InputMaybe<EventDateFilterInput>;
   readonly etag: InputMaybe<StringQueryOperatorInput>;
   readonly eventType: InputMaybe<StringQueryOperatorInput>;
-  readonly gadget: InputMaybe<CalendarEventGadgetFilterInput>;
   readonly guestsCanSeeOtherGuests: InputMaybe<BooleanQueryOperatorInput>;
   readonly htmlLink: InputMaybe<StringQueryOperatorInput>;
   readonly iCalUID: InputMaybe<StringQueryOperatorInput>;
@@ -326,38 +260,16 @@ type CalendarEventFilterInput = {
   readonly originalStartTime: InputMaybe<CalendarEventOriginalStartTimeFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly recurringEventId: InputMaybe<StringQueryOperatorInput>;
-  readonly reminders: InputMaybe<CalendarEventRemindersFilterInput>;
   readonly sequence: InputMaybe<IntQueryOperatorInput>;
   readonly start: InputMaybe<EventDateFilterInput>;
   readonly status: InputMaybe<StringQueryOperatorInput>;
   readonly summary: InputMaybe<StringQueryOperatorInput>;
-  readonly transparency: InputMaybe<StringQueryOperatorInput>;
   readonly updated: InputMaybe<DateQueryOperatorInput>;
   readonly visibility: InputMaybe<StringQueryOperatorInput>;
 };
 
 type CalendarEventFilterListInput = {
   readonly elemMatch: InputMaybe<CalendarEventFilterInput>;
-};
-
-type CalendarEventGadget = {
-  readonly iconLink: Maybe<Scalars['String']>;
-  readonly title: Maybe<Scalars['String']>;
-};
-
-type CalendarEventGadgetFieldSelector = {
-  readonly iconLink: InputMaybe<FieldSelectorEnum>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
-};
-
-type CalendarEventGadgetFilterInput = {
-  readonly iconLink: InputMaybe<StringQueryOperatorInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-};
-
-type CalendarEventGadgetSortInput = {
-  readonly iconLink: InputMaybe<SortOrderEnum>;
-  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type CalendarEventGroupConnection = {
@@ -453,22 +365,6 @@ type CalendarEventOriginalStartTimeSortInput = {
   readonly timeZone: InputMaybe<SortOrderEnum>;
 };
 
-type CalendarEventReminders = {
-  readonly useDefault: Maybe<Scalars['Boolean']>;
-};
-
-type CalendarEventRemindersFieldSelector = {
-  readonly useDefault: InputMaybe<FieldSelectorEnum>;
-};
-
-type CalendarEventRemindersFilterInput = {
-  readonly useDefault: InputMaybe<BooleanQueryOperatorInput>;
-};
-
-type CalendarEventRemindersSortInput = {
-  readonly useDefault: InputMaybe<SortOrderEnum>;
-};
-
 type CalendarEventSortInput = {
   readonly allDay: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
@@ -478,7 +374,6 @@ type CalendarEventSortInput = {
   readonly end: InputMaybe<EventDateSortInput>;
   readonly etag: InputMaybe<SortOrderEnum>;
   readonly eventType: InputMaybe<SortOrderEnum>;
-  readonly gadget: InputMaybe<CalendarEventGadgetSortInput>;
   readonly guestsCanSeeOtherGuests: InputMaybe<SortOrderEnum>;
   readonly htmlLink: InputMaybe<SortOrderEnum>;
   readonly iCalUID: InputMaybe<SortOrderEnum>;
@@ -490,58 +385,34 @@ type CalendarEventSortInput = {
   readonly originalStartTime: InputMaybe<CalendarEventOriginalStartTimeSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly recurringEventId: InputMaybe<SortOrderEnum>;
-  readonly reminders: InputMaybe<CalendarEventRemindersSortInput>;
   readonly sequence: InputMaybe<SortOrderEnum>;
   readonly start: InputMaybe<EventDateSortInput>;
   readonly status: InputMaybe<SortOrderEnum>;
   readonly summary: InputMaybe<SortOrderEnum>;
-  readonly transparency: InputMaybe<SortOrderEnum>;
   readonly updated: InputMaybe<SortOrderEnum>;
   readonly visibility: InputMaybe<SortOrderEnum>;
 };
 
 type CalendarFieldSelector = {
-  readonly accessRole: InputMaybe<FieldSelectorEnum>;
-  readonly backgroundColor: InputMaybe<FieldSelectorEnum>;
   readonly childCalendarEvent: InputMaybe<CalendarEventFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenCalendarEvent: InputMaybe<CalendarEventFieldSelector>;
-  readonly colorId: InputMaybe<FieldSelectorEnum>;
-  readonly conferenceProperties: InputMaybe<CalendarConferencePropertiesFieldSelector>;
-  readonly defaultReminders: InputMaybe<CalendarDefaultRemindersFieldSelector>;
   readonly description: InputMaybe<FieldSelectorEnum>;
-  readonly etag: InputMaybe<FieldSelectorEnum>;
-  readonly foregroundColor: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly kind: InputMaybe<FieldSelectorEnum>;
-  readonly notificationSettings: InputMaybe<CalendarNotificationSettingsFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly primary: InputMaybe<FieldSelectorEnum>;
-  readonly selected: InputMaybe<FieldSelectorEnum>;
   readonly summary: InputMaybe<FieldSelectorEnum>;
   readonly timeZone: InputMaybe<FieldSelectorEnum>;
 };
 
 type CalendarFilterInput = {
-  readonly accessRole: InputMaybe<StringQueryOperatorInput>;
-  readonly backgroundColor: InputMaybe<StringQueryOperatorInput>;
   readonly childCalendarEvent: InputMaybe<CalendarEventFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenCalendarEvent: InputMaybe<CalendarEventFilterListInput>;
-  readonly colorId: InputMaybe<StringQueryOperatorInput>;
-  readonly conferenceProperties: InputMaybe<CalendarConferencePropertiesFilterInput>;
-  readonly defaultReminders: InputMaybe<CalendarDefaultRemindersFilterListInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
-  readonly etag: InputMaybe<StringQueryOperatorInput>;
-  readonly foregroundColor: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly kind: InputMaybe<StringQueryOperatorInput>;
-  readonly notificationSettings: InputMaybe<CalendarNotificationSettingsFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly primary: InputMaybe<BooleanQueryOperatorInput>;
-  readonly selected: InputMaybe<BooleanQueryOperatorInput>;
   readonly summary: InputMaybe<StringQueryOperatorInput>;
   readonly timeZone: InputMaybe<StringQueryOperatorInput>;
 };
@@ -587,65 +458,14 @@ type CalendarGroupConnection_sumArgs = {
   field: CalendarFieldSelector;
 };
 
-type CalendarNotificationSettings = {
-  readonly notifications: Maybe<ReadonlyArray<Maybe<CalendarNotificationSettingsNotifications>>>;
-};
-
-type CalendarNotificationSettingsFieldSelector = {
-  readonly notifications: InputMaybe<CalendarNotificationSettingsNotificationsFieldSelector>;
-};
-
-type CalendarNotificationSettingsFilterInput = {
-  readonly notifications: InputMaybe<CalendarNotificationSettingsNotificationsFilterListInput>;
-};
-
-type CalendarNotificationSettingsNotifications = {
-  readonly method: Maybe<Scalars['String']>;
-  readonly type: Maybe<Scalars['String']>;
-};
-
-type CalendarNotificationSettingsNotificationsFieldSelector = {
-  readonly method: InputMaybe<FieldSelectorEnum>;
-  readonly type: InputMaybe<FieldSelectorEnum>;
-};
-
-type CalendarNotificationSettingsNotificationsFilterInput = {
-  readonly method: InputMaybe<StringQueryOperatorInput>;
-  readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type CalendarNotificationSettingsNotificationsFilterListInput = {
-  readonly elemMatch: InputMaybe<CalendarNotificationSettingsNotificationsFilterInput>;
-};
-
-type CalendarNotificationSettingsNotificationsSortInput = {
-  readonly method: InputMaybe<SortOrderEnum>;
-  readonly type: InputMaybe<SortOrderEnum>;
-};
-
-type CalendarNotificationSettingsSortInput = {
-  readonly notifications: InputMaybe<CalendarNotificationSettingsNotificationsSortInput>;
-};
-
 type CalendarSortInput = {
-  readonly accessRole: InputMaybe<SortOrderEnum>;
-  readonly backgroundColor: InputMaybe<SortOrderEnum>;
   readonly childCalendarEvent: InputMaybe<CalendarEventSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenCalendarEvent: InputMaybe<CalendarEventSortInput>;
-  readonly colorId: InputMaybe<SortOrderEnum>;
-  readonly conferenceProperties: InputMaybe<CalendarConferencePropertiesSortInput>;
-  readonly defaultReminders: InputMaybe<CalendarDefaultRemindersSortInput>;
   readonly description: InputMaybe<SortOrderEnum>;
-  readonly etag: InputMaybe<SortOrderEnum>;
-  readonly foregroundColor: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly kind: InputMaybe<SortOrderEnum>;
-  readonly notificationSettings: InputMaybe<CalendarNotificationSettingsSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly primary: InputMaybe<SortOrderEnum>;
-  readonly selected: InputMaybe<SortOrderEnum>;
   readonly summary: InputMaybe<SortOrderEnum>;
   readonly timeZone: InputMaybe<SortOrderEnum>;
 };
@@ -964,13 +784,13 @@ type DuotoneGradient = {
 };
 
 type EventDate = {
-  readonly date: Maybe<Scalars['Date']>;
-  readonly dateTime: Scalars['String'];
+  readonly date: Scalars['String'];
+  readonly dateTime: Maybe<Scalars['Date']>;
   readonly timeZone: Scalars['String'];
 };
 
 
-type EventDate_dateArgs = {
+type EventDate_dateTimeArgs = {
   difference: InputMaybe<Scalars['String']>;
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
@@ -984,8 +804,8 @@ type EventDateFieldSelector = {
 };
 
 type EventDateFilterInput = {
-  readonly date: InputMaybe<DateQueryOperatorInput>;
-  readonly dateTime: InputMaybe<StringQueryOperatorInput>;
+  readonly date: InputMaybe<StringQueryOperatorInput>;
+  readonly dateTime: InputMaybe<DateQueryOperatorInput>;
   readonly timeZone: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -2172,136 +1992,6 @@ type MarkdownWordCountSortInput = {
   readonly words: InputMaybe<SortOrderEnum>;
 };
 
-type Message = Node & {
-  readonly children: ReadonlyArray<Node>;
-  readonly date: Maybe<Scalars['Date']>;
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly message: Maybe<Scalars['String']>;
-  readonly parent: Maybe<Node>;
-};
-
-
-type Message_dateArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-type MessageConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<MessageEdge>;
-  readonly group: ReadonlyArray<MessageGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Message>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type MessageConnection_distinctArgs = {
-  field: MessageFieldSelector;
-};
-
-
-type MessageConnection_groupArgs = {
-  field: MessageFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type MessageConnection_maxArgs = {
-  field: MessageFieldSelector;
-};
-
-
-type MessageConnection_minArgs = {
-  field: MessageFieldSelector;
-};
-
-
-type MessageConnection_sumArgs = {
-  field: MessageFieldSelector;
-};
-
-type MessageEdge = {
-  readonly next: Maybe<Message>;
-  readonly node: Message;
-  readonly previous: Maybe<Message>;
-};
-
-type MessageFieldSelector = {
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly date: InputMaybe<FieldSelectorEnum>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly message: InputMaybe<FieldSelectorEnum>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-};
-
-type MessageFilterInput = {
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly date: InputMaybe<DateQueryOperatorInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly message: InputMaybe<StringQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-};
-
-type MessageGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<MessageEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<MessageGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Message>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type MessageGroupConnection_distinctArgs = {
-  field: MessageFieldSelector;
-};
-
-
-type MessageGroupConnection_groupArgs = {
-  field: MessageFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type MessageGroupConnection_maxArgs = {
-  field: MessageFieldSelector;
-};
-
-
-type MessageGroupConnection_minArgs = {
-  field: MessageFieldSelector;
-};
-
-
-type MessageGroupConnection_sumArgs = {
-  field: MessageFieldSelector;
-};
-
-type MessageSortInput = {
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly date: InputMaybe<SortOrderEnum>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly message: InputMaybe<SortOrderEnum>;
-  readonly parent: InputMaybe<NodeSortInput>;
-};
-
 /** Node Interface */
 type Node = {
   readonly children: ReadonlyArray<Node>;
@@ -2377,7 +2067,6 @@ type Query = {
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
   readonly allMarkdownRemark: MarkdownRemarkConnection;
-  readonly allMessage: MessageConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
   readonly allSiteFunction: SiteFunctionConnection;
@@ -2389,7 +2078,6 @@ type Query = {
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
   readonly markdownRemark: Maybe<MarkdownRemark>;
-  readonly message: Maybe<Message>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
   readonly siteFunction: Maybe<SiteFunction>;
@@ -2446,14 +2134,6 @@ type Query_allMarkdownRemarkArgs = {
 };
 
 
-type Query_allMessageArgs = {
-  filter: InputMaybe<MessageFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<MessageSortInput>>>;
-};
-
-
 type Query_allSiteArgs = {
   filter: InputMaybe<SiteFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
@@ -2495,24 +2175,13 @@ type Query_allSitePluginArgs = {
 
 
 type Query_calendarArgs = {
-  accessRole: InputMaybe<StringQueryOperatorInput>;
-  backgroundColor: InputMaybe<StringQueryOperatorInput>;
   childCalendarEvent: InputMaybe<CalendarEventFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenCalendarEvent: InputMaybe<CalendarEventFilterListInput>;
-  colorId: InputMaybe<StringQueryOperatorInput>;
-  conferenceProperties: InputMaybe<CalendarConferencePropertiesFilterInput>;
-  defaultReminders: InputMaybe<CalendarDefaultRemindersFilterListInput>;
   description: InputMaybe<StringQueryOperatorInput>;
-  etag: InputMaybe<StringQueryOperatorInput>;
-  foregroundColor: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  kind: InputMaybe<StringQueryOperatorInput>;
-  notificationSettings: InputMaybe<CalendarNotificationSettingsFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
-  primary: InputMaybe<BooleanQueryOperatorInput>;
-  selected: InputMaybe<BooleanQueryOperatorInput>;
   summary: InputMaybe<StringQueryOperatorInput>;
   timeZone: InputMaybe<StringQueryOperatorInput>;
 };
@@ -2527,7 +2196,6 @@ type Query_calendarEventArgs = {
   end: InputMaybe<EventDateFilterInput>;
   etag: InputMaybe<StringQueryOperatorInput>;
   eventType: InputMaybe<StringQueryOperatorInput>;
-  gadget: InputMaybe<CalendarEventGadgetFilterInput>;
   guestsCanSeeOtherGuests: InputMaybe<BooleanQueryOperatorInput>;
   htmlLink: InputMaybe<StringQueryOperatorInput>;
   iCalUID: InputMaybe<StringQueryOperatorInput>;
@@ -2539,12 +2207,10 @@ type Query_calendarEventArgs = {
   originalStartTime: InputMaybe<CalendarEventOriginalStartTimeFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   recurringEventId: InputMaybe<StringQueryOperatorInput>;
-  reminders: InputMaybe<CalendarEventRemindersFilterInput>;
   sequence: InputMaybe<IntQueryOperatorInput>;
   start: InputMaybe<EventDateFilterInput>;
   status: InputMaybe<StringQueryOperatorInput>;
   summary: InputMaybe<StringQueryOperatorInput>;
-  transparency: InputMaybe<StringQueryOperatorInput>;
   updated: InputMaybe<DateQueryOperatorInput>;
   visibility: InputMaybe<StringQueryOperatorInput>;
 };
@@ -2664,16 +2330,6 @@ type Query_markdownRemarkArgs = {
   tableOfContents: InputMaybe<StringQueryOperatorInput>;
   timeToRead: InputMaybe<IntQueryOperatorInput>;
   wordCount: InputMaybe<MarkdownWordCountFilterInput>;
-};
-
-
-type Query_messageArgs = {
-  children: InputMaybe<NodeFilterListInput>;
-  date: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  message: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
 };
 
 
@@ -3545,7 +3201,7 @@ type AllBlogPostsQuery = { readonly allMarkdownRemark: { readonly edges: Readonl
 type CalendarQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CalendarQueryQuery = { readonly allCalendar: { readonly edges: ReadonlyArray<{ readonly node: { readonly summary: string, readonly description: string | null, readonly childrenCalendarEvent: ReadonlyArray<{ readonly summary: string, readonly location: string | null, readonly description: string | null, readonly start: { readonly date: string | null, readonly dateTime: string }, readonly end: { readonly date: string | null, readonly dateTime: string } } | null> | null } }> } };
+type CalendarQueryQuery = { readonly allCalendar: { readonly edges: ReadonlyArray<{ readonly node: { readonly summary: string, readonly description: string | null, readonly childrenCalendarEvent: ReadonlyArray<{ readonly summary: string, readonly location: string | null, readonly description: string | null, readonly start: { readonly date: string, readonly dateTime: string | null }, readonly end: { readonly date: string, readonly dateTime: string | null } } | null> | null } }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -3572,11 +3228,6 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
-
-type AllPostsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllPostsQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly frontmatter: { readonly slug: string | null } | null } }> } };
 
 
 }

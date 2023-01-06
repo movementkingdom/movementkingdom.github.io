@@ -60,9 +60,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-calendar`,
       options: {
-        calendarIds: {
-          calendarId: "hla1m0ms5tppffg9mv1q22oojg@group.calendar.google.com",
-        },
+        calendarIds: ["hla1m0ms5tppffg9mv1q22oojg@group.calendar.google.com"],
         // options to retrieve the next 10 upcoming events
         timeMin: new Date().toISOString(),
         maxResults: 50,
