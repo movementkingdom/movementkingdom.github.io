@@ -784,13 +784,13 @@ type DuotoneGradient = {
 };
 
 type EventDate = {
-  readonly date: Scalars['String'];
-  readonly dateTime: Maybe<Scalars['Date']>;
+  readonly date: Maybe<Scalars['Date']>;
+  readonly dateTime: Scalars['String'];
   readonly timeZone: Scalars['String'];
 };
 
 
-type EventDate_dateTimeArgs = {
+type EventDate_dateArgs = {
   difference: InputMaybe<Scalars['String']>;
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
@@ -804,8 +804,8 @@ type EventDateFieldSelector = {
 };
 
 type EventDateFilterInput = {
-  readonly date: InputMaybe<StringQueryOperatorInput>;
-  readonly dateTime: InputMaybe<DateQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly dateTime: InputMaybe<StringQueryOperatorInput>;
   readonly timeZone: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -3201,7 +3201,7 @@ type AllBlogPostsQuery = { readonly allMarkdownRemark: { readonly edges: Readonl
 type CalendarQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CalendarQueryQuery = { readonly allCalendar: { readonly edges: ReadonlyArray<{ readonly node: { readonly summary: string, readonly description: string | null, readonly childrenCalendarEvent: ReadonlyArray<{ readonly summary: string, readonly location: string | null, readonly description: string | null, readonly start: { readonly date: string, readonly dateTime: string | null }, readonly end: { readonly date: string, readonly dateTime: string | null } } | null> | null } }> } };
+type CalendarQueryQuery = { readonly allCalendar: { readonly edges: ReadonlyArray<{ readonly node: { readonly summary: string, readonly description: string | null, readonly childrenCalendarEvent: ReadonlyArray<{ readonly summary: string, readonly location: string | null, readonly description: string | null, readonly start: { readonly date: string | null, readonly dateTime: string }, readonly end: { readonly date: string | null, readonly dateTime: string } } | null> | null } }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 

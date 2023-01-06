@@ -56,16 +56,26 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId, getNo
         // event is "all-day"
         event.start = {
           ...event.start,
-          date: moment(event.start.date).tz(calendar.timeZone, true).format(),
+          dateTime: moment(event.start.date).tz(calendar.timeZone, true).format(),
           timeZone: calendar.timeZone,
         };
         event.end = {
           ...event.end,
-          date: moment(event.end.date).tz(calendar.timeZone, true).format(),
+          dateTime: moment(event.end.date).tz(calendar.timeZone, true).format(),
           timeZone: calendar.timeZone,
         };
         event.allDay = true;
       } else {
+        event.start = {
+          ...event.start,
+          date: moment(event.start.dateTime).tz(calendar.timeZone, true).format("YYYY-MM-DD"),
+          timeZone: calendar.timeZone,
+        };
+        event.end = {
+          ...event.end,
+          date: moment(event.end.dateTime).tz(calendar.timeZone, true).format("YYYY-MM-DD"),
+          timeZone: calendar.timeZone,
+        };
         event.allDay = false;
       }
 
@@ -105,7 +115,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       children: [CalendarEvent]
     }
     type EventDate {
-      date: String!
+      dateTime: String!
       timeZone: String!
     }
     type CalendarEvent implements Node {
@@ -140,7 +150,7 @@ async function getCalendars(calendarIds = []) {
           id: calendarId,
           summary: res.data.summary,
           timeZone: res.data.timeZone,
-          description: ""
+          description: "",
         };
       })
     );
