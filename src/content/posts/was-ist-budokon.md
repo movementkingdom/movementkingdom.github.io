@@ -7,7 +7,7 @@ public: true
 ---
 
 <div class="iframe-container" align="center" width="container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SVo1kRQsS8I" title="YouTube video player" frameborder="5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="100vh" src="https://www.youtube.com/embed/SVo1kRQsS8I" title="YouTube video player" frameborder="5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 Budokon bezeichnet sich selbst als eine Mixed-Movement Art, die Anfang der 2000er Jahre von dem Kampfsportler und Yogalehrer Cameron Shayne ins leben gerufen. Es kombiniert Elemente verschiedener Kampfsportstile mit den körperlichen und mentalen Praktiken des Yoga.
